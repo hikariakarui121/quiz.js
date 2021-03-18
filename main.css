@@ -1,0 +1,17 @@
+header{
+  background-color: blue;
+  color:white;
+  margin:0 auto;
+}
+
+.title {
+  margin:0 auto;
+  width:1000px;
+}
+
+
+
+footer{
+  background-color:blue;
+  color:white;
+}

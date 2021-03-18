@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>クイズ練習</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="title">クイズ複数</h1>
+  </header>
+
+  <main>
+    <p id="quest">ここに問題が出題されます</p>
+    <p>
+      <input type="radio" name="toi" value="1"><span id ="toi1">選択肢1</span>
+      <input type="radio" name="toi" value="2"><span id ="toi2">選択肢2</span>
+      <input type="radio" name="toi" value="3"><span id ="toi3">選択肢3</span>
+    </p>
+  </main>
+
+  <footer>
+    <p>フッター</p>
+  </footer>
+  
+
+    <!-- JQの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    // 質問
+    const qs =[
+      "通る",
+      "話すこと",
+      "世界"
+    ];
+
+    // 回答選択肢例
+    const toi =[
+      ["踏切","選択","冷蔵"],
+      ["スプーン","しゃべる","しゃもじ"],
+      ["てんとう虫","かまきり","蚊"]
+    ];
+
+    // 答え
+    const ans=[1,2,3];
+
+    // 最初の問題
+    let i =0;
+    $("#quest").html(qs[i]);
+    // 最初の選択肢
+    function q(i){
+      $("#toi1").html(toi[i][0]);
+      $("#toi2").html(toi[i][1]);
+      $("#toi3").html(toi[i][2]);
+    }
+    q(i);
+    
+    // クリックしたあとの処理
+    $('[name=toi]').on("click",function(){
+      // ここでのthisはクリックしたものだけを指すことができる
+      if($(this).val() == ans[i]){
+        alert("正解!");
+      }else{
+        alert("不正解!");
+      }
+
+      i++;
+      q(i);
+    });
+
+
+
+  </script>
+
+
+
+</body>
+</html>
